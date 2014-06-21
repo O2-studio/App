@@ -1,0 +1,16 @@
+/*/bin
+/*/gen
+*.dex
+*.war
+*.ear
+*.apk
+*.class
+
+/*/release/
+*.metadata/
+*.metadata
+
+*.project
+*.DS_Store
+/*/target/
+
