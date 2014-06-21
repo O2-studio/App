@@ -25,19 +25,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<!--         <activity android:name=".PropertiesActivity" />
-        <activity android:name=".LeftAndRightActivity" />
-        <activity android:name=".AttachExample" />
-        <activity android:name=".anim.CustomScaleAnimation" />
-        <activity android:name=".anim.CustomZoomAnimation" />
-        <activity android:name=".anim.CustomRotateAnimation" />
-        <activity android:name=".anim.CustomSlideAnimation" />
-        <activity android:name=".fragments.FragmentChangeActivity" />
-        <activity android:name=".fragments.ResponsiveUIActivity" />
-        <activity
-            android:name=".fragments.BirdActivity"
-            android:theme="@style/Theme.Sherlock.Light.DarkActionBar" />
-        <activity android:name="com.crittercism.NotificationActivity"/> -->
     </application>
 
 </manifest>
