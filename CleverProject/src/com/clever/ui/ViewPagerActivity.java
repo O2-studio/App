@@ -9,7 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 
-import com.clever.ui.fragments.ColorFragment;
+import com.clever.ui.fragments.RightContentF;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 public class ViewPagerActivity extends BaseActivity {
@@ -23,6 +23,7 @@ public class ViewPagerActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 
 		ViewPager vp = new ViewPager(this);
+		
 		vp.setId("VP".hashCode());
 		vp.setAdapter(new ColorPagerAdapter(getSupportFragmentManager()));
 		setContentView(vp);
@@ -68,7 +69,7 @@ public class ViewPagerActivity extends BaseActivity {
 			super(fm);
 			mFragments = new ArrayList<Fragment>();
 			for (int color : COLORS)
-				mFragments.add(new ColorFragment(color));
+				mFragments.add(new RightContentF(color));
 		}
 
 		@Override

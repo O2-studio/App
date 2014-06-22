@@ -8,16 +8,16 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.clever.ui.R;
-
-public class ColorFragment extends Fragment {
+//Color panels on right side
+public class RightContentF extends Fragment {
 	
 	private int mColorRes = -1;
 	
-	public ColorFragment() { 
+	public RightContentF() { 
 		this(R.color.white);
 	}
 	
-	public ColorFragment(int colorRes) {
+	public RightContentF(int colorRes) {
 		mColorRes = colorRes;
 		setRetainInstance(true);
 	}

@@ -13,14 +13,14 @@ import android.widget.TextView;
 public class SampleListFragment extends ListFragment {
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		return inflater.inflate(R.layout.list, null);
+		return inflater.inflate(R.layout.left_menu, null);
 	}
 
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		SampleAdapter adapter = new SampleAdapter(getActivity());
-		for (int i = 0; i < 20; i++) {
-			adapter.add(new SampleItem("Sample List", android.R.drawable.ic_menu_search));
+		for (int i = 0; i < 10; i++) {
+			adapter.add(new SampleItem("Category "+i, android.R.drawable.ic_menu_search));
 		}
 		setListAdapter(adapter);
 	}

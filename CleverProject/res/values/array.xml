@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="tag_names">
+        <item>家居</item>
+        <item>厨房</item>
+        <item>物理</item>
+        <item>科幻</item>
+        <item>冷笑话</item>
+    </string-array>
+</resources>
