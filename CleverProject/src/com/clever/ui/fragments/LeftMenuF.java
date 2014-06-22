@@ -44,10 +44,10 @@ public class LeftMenuF extends ListFragment {
 			newContent = new RightContentF(R.color.blue);
 			break;
 		case 3:
-			newContent = new RightContentF(android.R.color.white);
+			newContent = new RightContentF(R.color.white);
 			break;
 		case 4:
-			newContent = new RightContentF(android.R.color.black);
+			newContent = new RightContentF(R.color.black);
 			break;
 		}
 		if (newContent != null)
