@@ -1,6 +1,7 @@
 package com.clever.module;
 
 import java.util.ArrayList;
+
 /*
  * Definition for category.
  */

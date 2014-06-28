@@ -7,21 +7,17 @@ import android.widget.ArrayAdapter;
 
 import com.clever.ui.R;
 
-public class MyArrayAdapter<T> extends ArrayAdapter<String> {
-	
+public class TagArrayAdapter<T> extends ArrayAdapter<String> {
 
-	private FragmentActivity tActivity=null;
-	
+	private FragmentActivity tActivity = null;
 
-	public MyArrayAdapter(FragmentActivity activity, int simpleListItem1,
+	public TagArrayAdapter(FragmentActivity activity, int simpleListItem1,
 			int text1, String[] colors) {
 		// TODO Auto-generated constructor stub
 		super(activity, simpleListItem1, text1, colors);
-//		mContext = null;
-		tActivity=activity;
+		// mContext = null;
+		tActivity = activity;
 	}
-
-
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {

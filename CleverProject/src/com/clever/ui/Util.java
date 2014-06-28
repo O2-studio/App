@@ -8,8 +8,8 @@ public class Util {
 
 	public static void goToGitHub(Context context) {
 		Uri uriUrl = Uri.parse("http://github.com/");
-		Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl); 
+		Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
 		context.startActivity(launchBrowser);
 	}
-	
+
 }

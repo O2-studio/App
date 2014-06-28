@@ -56,4 +56,5 @@
 		language governing permissions and limitations under the License.</string>
     <string name="no_email">Sorry, I couldn\'t find any e-mail apps on your phone</string>
 	<string name="setting">设置</string>
+	<string name="article">文章</string>
 </resources>
