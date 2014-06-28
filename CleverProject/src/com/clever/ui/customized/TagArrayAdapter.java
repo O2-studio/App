@@ -26,22 +26,22 @@ public class TagArrayAdapter<T> extends ArrayAdapter<String> {
 		switch (position) {
 		case 0:
 			view.setBackgroundColor(tActivity.getResources().getColor(
-					R.color.red));
+					R.color.Health_C));
 			// view.setBackgroundColor(Color.RED);
 			break;
 		case 1:
 			view.setBackgroundColor(tActivity.getResources().getColor(
-					R.color.green));
+					R.color.History_C));
 			// view.setBackgroundColor(Color.GREEN);
 			break;
 		case 2:
 			view.setBackgroundColor(tActivity.getResources().getColor(
-					R.color.blue));
+					R.color.Computer_C));
 			// view.setBackgroundColor(Color.BLUE);
 			break;
 		case 3:
 			view.setBackgroundColor(tActivity.getResources().getColor(
-					R.color.white));
+					R.color.Art_C));
 			// view.setBackgroundColor(Color.WHITE);
 			break;
 		case 4:

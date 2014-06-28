@@ -38,16 +38,16 @@ public class LeftMenuF extends ListFragment {
 		Fragment newContent = null;
 		switch (position) {
 		case 0:
-			newContent = new RightContentF(R.color.red);
+			newContent = new RightContentF(R.color.Health_C);
 			break;
 		case 1:
-			newContent = new RightContentF(R.color.green);
+			newContent = new RightContentF(R.color.History_C);
 			break;
 		case 2:
-			newContent = new RightContentF(R.color.blue);
+			newContent = new RightContentF(R.color.Computer_C);
 			break;
 		case 3:
-			newContent = new RightContentF(R.color.white);
+			newContent = new RightContentF(R.color.Art_C);
 			break;
 		case 4:
 			newContent = new RightContentF(R.color.black);

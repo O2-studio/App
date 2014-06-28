@@ -8,5 +8,14 @@
     <color name="light_blue">#add8e6</color>
     <color name="sgray">#a9a9a9</color>
     
+    <color name="Health_T">#009688</color>
+    <color name="Health_C">#00897b</color>
+    <color name="History_T">#495abf</color>
+    <color name="History_C">#3949ab</color>
+    <color name="Computer_T">#607d8b</color>
+    <color name="Computer_C">#549e7a</color>
+    <color name="Art_T">#673ab7</color>
+    <color name="Art_C">#5e35b1</color>
+    
     
 </resources>

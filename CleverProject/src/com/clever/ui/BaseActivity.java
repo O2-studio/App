@@ -8,6 +8,8 @@ import com.actionbarsherlock.view.MenuItem;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
+//import android.view.Window;
+
 public class BaseActivity extends SlidingFragmentActivity {
 
 	private int mTitleRes;

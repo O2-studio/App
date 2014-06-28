@@ -3,6 +3,7 @@ package com.clever.ui.customized;
 import java.util.List;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +16,12 @@ import com.clever.ui.R;
 public class ArticleViewAdapter extends ArrayAdapter<Doc> {
 
 	private LayoutInflater inflater;
+	private Context context = null;
 
 	public ArticleViewAdapter(Context context, List<Doc> list) {
 		super(context, 0, list);
 		inflater = LayoutInflater.from(context);
+		this.context = context;
 	}
 
 	@Override
@@ -29,8 +32,13 @@ public class ArticleViewAdapter extends ArrayAdapter<Doc> {
 			convertView = inflater.inflate(R.layout.article, null);
 		}
 
-		TextView name = (TextView) convertView.findViewById(R.id.article_body);
-		name.setText(doc.getContent());
+		TextView article = (TextView) convertView
+				.findViewById(R.id.article_body);
+		
+		
+		Typeface face = Typefaces.get(context, "fonts/RobotoTTF/Roboto-Light.ttf");
+		article.setTypeface(face);
+		article.setText(doc.getContent());
 
 		return convertView;
 	}

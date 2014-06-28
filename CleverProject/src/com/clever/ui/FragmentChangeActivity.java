@@ -17,13 +17,17 @@ public class FragmentChangeActivity extends BaseActivity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		
+		// modify default left icon. 
+		getSupportActionBar().setIcon(R.drawable.header);
 		super.onCreate(savedInstanceState);
+			
 		// set the Above View
 		if (savedInstanceState != null)
 			rightPanel = getSupportFragmentManager().getFragment(
 					savedInstanceState, "rightPanel");
 		if (rightPanel == null)
-			rightPanel = new RightContentF(R.color.red);
+			rightPanel = new RightContentF(R.color.Health_C);
 
 		setContentView(R.layout.content_frame);
 		getSupportFragmentManager().beginTransaction()
@@ -36,6 +40,9 @@ public class FragmentChangeActivity extends BaseActivity {
 
 		// customize the SlidingMenu
 		getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+		
+		//customize the left icon
+
 	}
 
 	@Override
