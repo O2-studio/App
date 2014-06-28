@@ -50,7 +50,7 @@ public class RightContentF extends Fragment implements
 				.findViewById(R.id.swipe_refresh);
 		swipeLayout.setOnRefreshListener(this);
 
-		//top refresh style
+		// top refresh style
 		swipeLayout.setColorScheme(android.R.color.holo_red_light,
 				android.R.color.holo_green_light,
 				android.R.color.holo_blue_bright,
@@ -58,7 +58,7 @@ public class RightContentF extends Fragment implements
 
 		contentList = new ArrayList<Doc>();
 		Doc info = new Doc();
-		info.setContent("a long story");
+		info.setContent("a knowledge");
 		contentList.add(info);
 		listView = (ListView) view.findViewById(R.id.listview);
 		adapter = new ArticleViewAdapter(getActivity(), contentList);

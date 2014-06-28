@@ -25,7 +25,6 @@ public class FragmentChangeActivity extends BaseActivity {
 		if (rightPanel == null)
 			rightPanel = new RightContentF(R.color.red);
 
-		// set the Above View
 		setContentView(R.layout.content_frame);
 		getSupportFragmentManager().beginTransaction()
 				.replace(R.id.content_frame, rightPanel).commit();

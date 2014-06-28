@@ -29,7 +29,7 @@ public class ArticleViewAdapter extends ArrayAdapter<Doc> {
 			convertView = inflater.inflate(R.layout.article, null);
 		}
 
-		TextView name = (TextView) convertView.findViewById(R.id.item_name);
+		TextView name = (TextView) convertView.findViewById(R.id.article_body);
 		name.setText(doc.getContent());
 
 		return convertView;
