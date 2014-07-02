@@ -11,7 +11,7 @@ public class Doc {
 	private String content;
 	private Date createTime;
 	// One article may belongs to different categories(tags).
-	private ArrayList<Tag> tags;
+	private ArrayList<Integer> tagIDs;
 	private int voteUp;
 	private int voteDown;
 
@@ -35,12 +35,12 @@ public class Doc {
 		this.content = content;
 	}
 
-	public ArrayList<Tag> getTags() {
-		return tags;
+	public ArrayList<Integer> getTags() {
+		return tagIDs;
 	}
 
-	public void setTags(ArrayList<Tag> tags) {
-		this.tags = tags;
+	public void setTags(ArrayList<Integer> tagIDs) {
+		this.tagIDs = tagIDs;
 	}
 
 	public Date getCreateTime() {

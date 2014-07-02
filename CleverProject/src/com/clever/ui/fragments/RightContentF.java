@@ -6,6 +6,7 @@ import java.util.List;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
@@ -14,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.clever.module.Doc;
+import com.clever.net.communicate.GetRequest;
+import com.clever.net.communicate.JsonUtils;
 import com.clever.ui.R;
 import com.clever.ui.customized.ArticleViewAdapter;
 
@@ -23,6 +26,9 @@ public class RightContentF extends Fragment implements
 		SwipeRefreshLayout.OnRefreshListener {
 	private int mColorRes = -1;
 	private SwipeRefreshLayout swipeLayout;
+	private Handler handler;
+
+	// private String result="";
 
 	// ListView to contain articles.
 	private ListView listView;
@@ -84,14 +90,37 @@ public class RightContentF extends Fragment implements
 	}
 
 	public void onRefresh() {
-		new Handler().postDelayed(new Runnable() {
-			public void run() {
-				swipeLayout.setRefreshing(false);
-				Doc info = new Doc();
-				info.setContent("another knowledge");
-				contentList.add(info);
-				adapter.notifyDataSetChanged();
+		// new Handler().postDelayed(new Runnable() {
+		// public void run() {
+		//
+		// swipeLayout.setRefreshing(false);
+		// Doc info = new Doc();
+		// info.setContent("another knowledge");
+		// contentList.add(info);
+		// adapter.notifyDataSetChanged();
+		// }
+		// }, 500);
+
+		handler = new Handler() {
+			public void handleMessage(Message msg) {
+
+				int msgCode = msg.what;
+				String recentDoc = msg.getData().getString("recentDoc");
+				if (msgCode == 0x101 && recentDoc != "") {
+					List<Doc> docs = JsonUtils.parseDocs(recentDoc);
+					for (Doc doc : docs) {
+						contentList.add(doc);
+					}
+					adapter.notifyDataSetChanged();
+
+					swipeLayout.setRefreshing(false);
+				}
+				super.handleMessage(msg);
 			}
-		}, 500);
+		};
+
+		GetRequest get = new GetRequest(handler);
+		Thread thread = new Thread(get);
+		thread.start();
 	}
 }
