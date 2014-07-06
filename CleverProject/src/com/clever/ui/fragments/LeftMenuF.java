@@ -1,5 +1,6 @@
 package com.clever.ui.fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
@@ -9,12 +10,20 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.clever.module.dao.ObjectDao;
 import com.clever.ui.FragmentChangeActivity;
 import com.clever.ui.R;
 import com.clever.ui.customized.TagArrayAdapter;
 
 //colors on the left side
+@SuppressLint("ValidFragment")
 public class LeftMenuF extends ListFragment {
+	private ObjectDao objDao;
+	
+	public LeftMenuF(ObjectDao objDao) {
+		// TODO Auto-generated constructor stub
+		this.objDao=objDao;
+	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,19 +47,19 @@ public class LeftMenuF extends ListFragment {
 		Fragment newContent = null;
 		switch (position) {
 		case 0:
-			newContent = new RightContentF(R.color.Health_C);
+			newContent = new RightContentF(R.color.Health_C, objDao);
 			break;
 		case 1:
-			newContent = new RightContentF(R.color.History_C);
+			newContent = new RightContentF(R.color.History_C, objDao);
 			break;
 		case 2:
-			newContent = new RightContentF(R.color.Computer_C);
+			newContent = new RightContentF(R.color.Computer_C, objDao);
 			break;
 		case 3:
-			newContent = new RightContentF(R.color.Art_C);
+			newContent = new RightContentF(R.color.Art_C, objDao);
 			break;
 		case 4:
-			newContent = new RightContentF(R.color.black);
+			newContent = new RightContentF(R.color.black, objDao);
 			break;
 		}
 		if (newContent != null)

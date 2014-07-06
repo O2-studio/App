@@ -34,9 +34,9 @@ public class ArticleViewAdapter extends ArrayAdapter<Doc> {
 
 		TextView article = (TextView) convertView
 				.findViewById(R.id.article_body);
-		
-		
-		Typeface face = Typefaces.get(context, "fonts/RobotoTTF/Roboto-Light.ttf");
+
+		Typeface face = Typefaces.get(context,
+				"fonts/RobotoTTF/Roboto-Light.ttf");
 		article.setTypeface(face);
 		article.setText(doc.getContent());
 

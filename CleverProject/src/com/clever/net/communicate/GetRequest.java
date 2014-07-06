@@ -13,12 +13,14 @@ import org.apache.http.util.EntityUtils;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+
 /*
  * Process all requests between server and client.
  */
 public class GetRequest implements Runnable {
-	private String result="";
+	private String result = "";
 	private Handler handler;
+	private boolean needRefresh = true;
 
 	public GetRequest(Handler hal) {
 		this.handler = hal;
@@ -47,15 +49,17 @@ public class GetRequest implements Runnable {
 
 	@Override
 	public void run() {
-		sendGet("http://fierce-meadow-3934.herokuapp.com/doc/recent?begin=2&end=5&format=json");
-		Message m = handler.obtainMessage();
-		Bundle bundle=new Bundle();
-		m.what=0X101;
-		bundle.putString("recentDoc", result);
-		m.setData(bundle);
-		handler.sendMessage(m);
+		if (needRefresh == true) {
+			sendGet("http://fierce-meadow-3934.herokuapp.com/doc/recent?begin=2&end=5&format=json");
+			Message m = handler.obtainMessage();
+			Bundle bundle = new Bundle();
+			m.what = 0X101;
+			bundle.putString("recentDoc", result);
+			m.setData(bundle);
+			handler.sendMessage(m);
+		}
 	}
-	
+
 	public String getResult() {
 		return result;
 	}

@@ -1,9 +1,9 @@
 package com.clever.ui.fragments;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import android.annotation.SuppressLint;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.clever.module.Doc;
+import com.clever.module.dao.ObjectDao;
 import com.clever.net.communicate.GetRequest;
 import com.clever.net.communicate.JsonUtils;
 import com.clever.ui.R;
@@ -27,6 +28,7 @@ public class RightContentF extends Fragment implements
 	private int mColorRes = -1;
 	private SwipeRefreshLayout swipeLayout;
 	private Handler handler;
+	private ObjectDao docDao;
 
 	// private String result="";
 
@@ -37,8 +39,9 @@ public class RightContentF extends Fragment implements
 	// All articles
 	private List<Doc> contentList;
 
-	public RightContentF(int colorRes) {
+	public RightContentF(int colorRes, ObjectDao docDao) {
 		mColorRes = colorRes;
+		this.docDao = docDao;
 		setRetainInstance(true);
 	}
 
@@ -62,10 +65,7 @@ public class RightContentF extends Fragment implements
 				android.R.color.holo_blue_bright,
 				android.R.color.holo_orange_light);
 
-		contentList = new ArrayList<Doc>();
-		Doc info = new Doc();
-		info.setContent("a knowledge");
-		contentList.add(info);
+		contentList = docDao.getAll();
 		listView = (ListView) view.findViewById(R.id.listview);
 		adapter = new ArticleViewAdapter(getActivity(), contentList);
 		listView.setAdapter(adapter);
@@ -89,30 +89,29 @@ public class RightContentF extends Fragment implements
 		super.onDestroyView();
 	}
 
+	// Refresh right panel.
 	public void onRefresh() {
-		// new Handler().postDelayed(new Runnable() {
-		// public void run() {
-		//
-		// swipeLayout.setRefreshing(false);
-		// Doc info = new Doc();
-		// info.setContent("another knowledge");
-		// contentList.add(info);
-		// adapter.notifyDataSetChanged();
-		// }
-		// }, 500);
-
 		handler = new Handler() {
 			public void handleMessage(Message msg) {
-
+				contentList.clear();
 				int msgCode = msg.what;
 				String recentDoc = msg.getData().getString("recentDoc");
 				if (msgCode == 0x101 && recentDoc != "") {
 					List<Doc> docs = JsonUtils.parseDocs(recentDoc);
+					// Save fetched data
 					for (Doc doc : docs) {
-						contentList.add(doc);
+						docDao.saveDoc(doc);
+						// contentList.add(doc);
+					}
+					// Read data from sqlite and display them.
+					Cursor cursor = docDao.getAllDoc();
+					while (cursor.moveToNext()) {
+						Doc tem = new Doc();
+						tem.setDocID(cursor.getInt(0));
+						tem.setContent(cursor.getString(1));
+						contentList.add(tem);
 					}
 					adapter.notifyDataSetChanged();
-
 					swipeLayout.setRefreshing(false);
 				}
 				super.handleMessage(msg);
