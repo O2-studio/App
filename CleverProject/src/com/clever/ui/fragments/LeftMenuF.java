@@ -19,10 +19,10 @@ import com.clever.ui.customized.TagArrayAdapter;
 @SuppressLint("ValidFragment")
 public class LeftMenuF extends ListFragment {
 	private ObjectDao objDao;
-	
+
 	public LeftMenuF(ObjectDao objDao) {
 		// TODO Auto-generated constructor stub
-		this.objDao=objDao;
+		this.objDao = objDao;
 	}
 
 	@Override

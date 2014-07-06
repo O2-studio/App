@@ -96,20 +96,21 @@ public class RightContentF extends Fragment implements
 				contentList.clear();
 				int msgCode = msg.what;
 				String recentDoc = msg.getData().getString("recentDoc");
-				if (msgCode == 0x101 && recentDoc != "") {
+				if (msgCode == 0x101 && !(recentDoc.equals(""))) {
 					List<Doc> docs = JsonUtils.parseDocs(recentDoc);
 					// Save fetched data
 					for (Doc doc : docs) {
 						docDao.saveDoc(doc);
-						// contentList.add(doc);
 					}
 					// Read data from sqlite and display them.
 					Cursor cursor = docDao.getAllDoc();
 					while (cursor.moveToNext()) {
-						Doc tem = new Doc();
-						tem.setDocID(cursor.getInt(0));
-						tem.setContent(cursor.getString(1));
-						contentList.add(tem);
+						if (!("".equals(cursor.getString(1)))) {
+							Doc tem = new Doc();
+							tem.setDocID(cursor.getInt(0));
+							tem.setContent(cursor.getString(1));
+							contentList.add(tem);
+						}
 					}
 					adapter.notifyDataSetChanged();
 					swipeLayout.setRefreshing(false);

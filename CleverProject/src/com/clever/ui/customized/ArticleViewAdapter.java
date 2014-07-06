@@ -39,8 +39,11 @@ public class ArticleViewAdapter extends ArrayAdapter<Doc> {
 				"fonts/RobotoTTF/Roboto-Light.ttf");
 		article.setTypeface(face);
 		article.setText(doc.getContent());
+		// WebView webview = (WebView) convertView
+		// .findViewById(R.id.article_webview);
+		// webview.loadDataWithBaseURL(null, doc.getContent(), "text/html",
+		// "utf-8", null);
 
 		return convertView;
 	}
-
 }

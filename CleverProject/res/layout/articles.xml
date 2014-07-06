@@ -12,7 +12,13 @@
         <ListView
             android:id="@+id/listview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:divider="@color/sgray"
+            android:paddingLeft="5dp" 
+            android:paddingRight="5dp"
+            android:paddingTop="2dp" 
+            android:paddingBottom="2dp" 
+            android:dividerHeight="4dp"  >
         </ListView>
     </android.support.v4.widget.SwipeRefreshLayout>
 

@@ -16,6 +16,8 @@ public class DBHelper extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		// TODO Auto-generated method stub
 		db.execSQL("CREATE TABLE IF NOT EXISTS doc (docid integer primary key autoincrement, content text, createTime text, voteup integer, votedown integer)");
+		// db.execSQL("CREATE TABLE IF NOT EXISTS tag (docid integer primary key autoincrement, content text, createTime text, voteup integer, votedown integer)");
+
 	}
 
 	@Override

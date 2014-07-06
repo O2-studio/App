@@ -34,10 +34,12 @@ public class ObjectDao {
 		List<Doc> docs = new ArrayList<Doc>();
 		Cursor cursor = getAllDoc();
 		while (cursor.moveToNext()) {
-			Doc tem = new Doc();
-			tem.setDocID(cursor.getInt(0));
-			tem.setContent(cursor.getString(1));
-			docs.add(tem);
+			if (!("".equals(cursor.getString(1)))) {
+				Doc tem = new Doc();
+				tem.setDocID(cursor.getInt(0));
+				tem.setContent(cursor.getString(1));
+				docs.add(tem);
+			}
 		}
 		return docs;
 	}

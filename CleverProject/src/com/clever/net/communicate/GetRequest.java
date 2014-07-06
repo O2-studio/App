@@ -50,7 +50,7 @@ public class GetRequest implements Runnable {
 	@Override
 	public void run() {
 		if (needRefresh == true) {
-			sendGet("http://fierce-meadow-3934.herokuapp.com/doc/recent?begin=2&end=5&format=json");
+			sendGet("http://fierce-meadow-3934.herokuapp.com/doc/recent?begin=1&end=5&format=json");
 			Message m = handler.obtainMessage();
 			Bundle bundle = new Bundle();
 			m.what = 0X101;
