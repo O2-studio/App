@@ -24,6 +24,9 @@ public class FragmentChangeActivity extends BaseActivity {
 
 		// modify default left icon.
 		getSupportActionBar().setIcon(R.drawable.header);
+		
+		//Add right icon to add knowledge.
+		
 		super.onCreate(savedInstanceState);
 
 		// set the Above View

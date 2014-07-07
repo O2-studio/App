@@ -9,13 +9,12 @@
         android:id="@+id/article_body"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
-        android:inputType="textMultiLine"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
         android:layout_margin="15dp"
-        android:gravity="center"
+        android:gravity="center|center_vertical|center_horizontal"
         android:orientation="vertical"
-        android:singleLine="true"
+        android:singleLine="false"
         android:textSize="30sp"
         android:textStyle="bold" />
 

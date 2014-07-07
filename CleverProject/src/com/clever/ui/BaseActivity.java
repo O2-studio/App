@@ -4,9 +4,12 @@ import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 
 import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
+
+
 
 //import android.view.Window;
 
@@ -51,7 +54,8 @@ public class BaseActivity extends SlidingFragmentActivity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getSupportMenuInflater().inflate(R.menu.main_menu, menu);
+		MenuInflater inflater=getSupportMenuInflater();
+		inflater.inflate(R.menu.main_menu, menu);
 		return true;
 	}
 }

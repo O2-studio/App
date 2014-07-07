@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     tools:context="${packageName}.${activityClass}" >
 
         <android.support.v4.widget.SwipeRefreshLayout
@@ -14,11 +14,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="@color/sgray"
-            android:paddingLeft="5dp" 
-            android:paddingRight="5dp"
-            android:paddingTop="2dp" 
-            android:paddingBottom="2dp" 
-            android:dividerHeight="4dp"  >
+            android:dividerHeight="4dp"
+            android:paddingBottom="2dp"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:paddingTop="2dp" >
+
         </ListView>
     </android.support.v4.widget.SwipeRefreshLayout>
 
